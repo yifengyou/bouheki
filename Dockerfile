@@ -1,4 +1,4 @@
-FROM ubuntu:21.10 as builder
+FROM debian:11 as builder
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
@@ -28,7 +28,7 @@ WORKDIR /go/src/github.com/mrtc0/bouheki
 COPY . ./
 RUN make build
 
-FROM ubuntu:21.10
+FROM debian:11
 RUN apt-get update
 RUN apt-get install -y libelf-dev && apt-get clean && rm -rf /var/lib/apt/lists/
 COPY --from=build /go/src/github.com/mrtc0/bouheki/build/bouheki /usr/local/bin/bouheki
