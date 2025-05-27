@@ -7,3 +7,5 @@ build/
 .idea/
 .vscode/
 tmp/
+go1.17.5.linux-amd64.tar.gz
+
